@@ -1,7 +1,13 @@
 const Router = require('koa-router')
 const router = new Router()
 
+const {
+  login
+} = require('../controllers/user')
 // 加前缀
-router.prefix('/api');
+router.prefix('/api')
 
-module.exports = () => {}
+module.exports = () => {
+  // 登录
+  router.post('/login', login)
+}

@@ -1,10 +1,16 @@
 const koa = require('koa')
-// const session = require("koa-session2")
 const body = require('koa-body')
 const middleware = require('./middleware')
+const session = require("koa-session2")
+const store = require('./utils/store')
 const app = new koa()
 
-// 解析 post 参数
+// session配置
+app.use(session({
+  store: new store(),
+  key: "SESSIONID",
+}))
+// 解析post 参数
 app.use(body())
 // 中间件
 middleware(app)

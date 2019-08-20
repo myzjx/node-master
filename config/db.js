@@ -1,7 +1,7 @@
-import mysql from 'mysql'
-import LogApi from '../logs'
+const db = require('mysql')
+// const LogApi = require('../logs')
 
-var pool = mysql.createPool({
+var pool = db.createPool({
   host: 'localhost',
   user: 'root',
   password: 'root',
@@ -10,7 +10,7 @@ var pool = mysql.createPool({
 })
 
 function query(sql) {
-  LogApi.writeLog(sql, 'sql')
+  // LogApi.writeLog(sql, 'sql')
   return new Promise((resolve, reject) => {
     pool.getConnection((err, conn) => {
       if (err) {
@@ -38,4 +38,4 @@ function query(sql) {
   })
 }
 
-export default query
+module.exports = query
