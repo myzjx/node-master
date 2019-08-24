@@ -1,6 +1,6 @@
 const koa = require('koa')
 const body = require('koa-body')
-const middleware = require('./middleware')
+const middleware = require('./middlewares')
 const session = require("koa-session2")
 const store = require('./utils/store')
 const app = new koa()
