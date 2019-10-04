@@ -1,5 +1,5 @@
 const db = require('mysql')
-// const LogApi = require('../logs')
+const LogApi = require('../logs')
 
 var pool = db.createPool({
   host: 'localhost',
@@ -10,7 +10,7 @@ var pool = db.createPool({
 })
 
 function query(sql) {
-  // LogApi.writeLog(sql, 'sql')
+  LogApi.writeLog(sql, 'sql')
   return new Promise((resolve, reject) => {
     pool.getConnection((err, conn) => {
       if (err) {

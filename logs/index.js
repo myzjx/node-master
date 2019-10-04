@@ -96,3 +96,5 @@ class Log {
     return mkdirStatus
   }
 }
+
+export default new Log()
