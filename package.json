@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/myzjx/node-master#readme",
   "dependencies": {
-    "koa": "^2.8.2"
+    "koa": "^2.8.2",
+    "koa-router": "^7.4.0"
   }
 }
