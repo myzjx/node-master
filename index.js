@@ -4,8 +4,6 @@ const app = new Koa()
 const router = require('./router')
 const middleware = require('./middleware')
 
-app.use(bodyParser())
-
 middleware(app)
 router(app)
 
