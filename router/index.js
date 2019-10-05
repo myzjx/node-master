@@ -1,7 +1,7 @@
 const router = require('koa-router')()
 const Controller = require('../controller')
 
-module.exports = () => {
+module.exports = (app) => {
   router.get('/', Controller.index)
 
   router.get('/home/:id/:name', Controller.home)

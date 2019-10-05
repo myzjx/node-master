@@ -1,3 +1,4 @@
+const Service = require('../service')
 module.exports = {
   index: async (ctx, next) => {
     ctx.response.body = '<h1>user page</h1>'
@@ -23,10 +24,7 @@ module.exports = {
       name,
       password
     } = ctx.request.body
-    if (name === 'ico' && password === '12345') {
-      ctx.response.body = `<h2>Hello, ${name}</h2>`
-    } else {
-      ctx.response.body = '账户或密码错误'
-    }
+    let data = await Service.register(name, password)
+    ctx.response.body = data
   }
 }
