@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "apidoc": "apidoc -i router/ -o apidoc/"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,15 @@
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "log4js": "^5.2.0"
+  },
+  "devDependencies": {
+    "apidoc": "^0.17.7"
+  },
+  "apidoc": {
+    "name": "ServiceAPIs",
+    "version": "0.0.1",
+    "description": "服务接口文档",
+    "title": "API接口文档",
+    "url": "http://localhost:3000"
   }
 }

@@ -19,7 +19,7 @@ module.exports = (options) => {
     dir
   } = opts
 
-  appenders.cheese = {
+  appenders.appInfo = {
     type: 'dateFile',
     filename: `${dir}/task`,
     pattern: '-yyyy-MM-dd.log',
@@ -41,10 +41,9 @@ module.exports = (options) => {
     }
   }
 
-  const logger = log4js.getLogger('cheese');
+  const logger = log4js.getLogger('appInfo');
   log4js.configure(config)
   return async (ctx, next) => {
-    const start = Date.now()
     methods.forEach((method, i) => {
       contextLogger[method] = (message) => {
         logger[method](message)
@@ -54,9 +53,5 @@ module.exports = (options) => {
     ctx.log = contextLogger;
 
     await next()
-    const responseTime = Date.now() - start;
-    logger.info(
-      `responseTime: 响应时间为${responseTime/1000}s`
-    )
   }
 }
